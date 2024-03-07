@@ -1,0 +1,34 @@
+<body>
+
+    <div id="title">
+        <p id="now">הסכום שנאסף עד עכשיו:</p>
+        <p id="sum"><b>{{sum}}</b> ש"ח</p>
+        <p id="in">מתוך {{goal}}</p>
+        <p id="left">נותרו עוד :{{goal-sum}}</p>
+    </div>
+
+    <div id="contant">
+        <!-- <div>
+            <p><b>כל הערים</b>:</p>
+            <div *ngFor="let c of cities">
+                <p class="city">שם העיר: {{c.name}}</p>
+                <p>הסכום : {{c.sum}}</p>
+            </div>
+        </div> -->
+        <div>
+            <p><b>הערים עם הסכומים הגבוהים ביותר :</b></p>
+            <div id="maxCities" *ngFor="let m of maxesCities;let index">
+                <p class="city">שם העיר: {{m.name}} </p>
+                <p>הסכום: {{m.sum}}</p>
+            </div>
+        </div>
+        <div>
+            <p><b>הערים שעודכנו לאחרונה:</b></p>
+            <div id="lastCities" *ngFor="let l of lastCities">
+                <p class="city">שם העיר: {{l.name}} </p>
+                <p>הסכום : {{l.sum}}</p>
+            </div>
+        </div>
+    </div>
+
+</body>

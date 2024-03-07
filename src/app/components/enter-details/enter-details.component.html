@@ -1,0 +1,36 @@
+<body id="body">
+    <h1>ניהול</h1>
+    <div id="flex">
+        <div id="addSumAndCity" class="details">
+            <p>הוספת עיר</p>
+            <input type="text" name="Addcity" id="city" placeholder="הכנס שם עיר" [(ngModel)]="Addcity">
+            <input type="number" name="Addsum" placeholder="הכנס סכום" [(ngModel)]="Addsum">
+            <button (click)="addCity()">אישור</button>
+        </div>
+        <br>
+        <div id="deleteCity" class="details">
+            <p>מחיקת עיר</p>
+            <input type="text" name="deletedCity" placeholder="מחיקת עיר" [(ngModel)]="deletedCity">
+            <button (click)="deleteCity()">אישור</button>
+        </div>
+        <br>
+        <div id="addSum" class="details">
+            <p>הוספת סכום</p>
+            <input type="number" name="Addsum" placeholder="הכנס סכום" [(ngModel)]="Addsum1">
+            <button (click)="addSum()">אישור</button>
+        </div>
+        <br>
+        <div id="deleteSum" class="details">
+            <p>מחיקת סכום</p>
+            <input type="text" name="deletedSum" placeholder="מחיקת סכום" [(ngModel)]="deletedSum">
+            <button (click)="deleteSum()">אישור</button>
+        </div>
+
+        <div id="changeGoal" class="details">
+            <p>יעד חדש :</p>
+            <input type="number" name="newGoal" placeholder="הכנס יעד חדש" [(ngModel)]="newGoal">
+            <button (click)="addNewGoal()">אישור</button>
+        </div>
+    </div>
+
+</body>

@@ -1,0 +1,45 @@
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#flex {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.details {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+input,
+button {
+    margin-top: 10px;
+    width: 80%;
+}
+
+button {
+    background-color: #515151;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1b1b1b;
+    box-shadow: 0 0 30px rgb(255, 199, 125), 0 0 30px, 0 0 30px rgb(255, 199, 125), 0 0 30px;
+}
+
+p {
+    color: rgb(41, 41, 41);
+    font-size: larger;
+    
+}
+// p:hover{
+//     box-shadow: 0 0 30px rgb(255, 199, 125), 0 0 30px rgb(255, 199, 125), 0 0 30px;
+// }
