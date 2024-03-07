@@ -35,6 +35,8 @@ export class MainComponent implements OnInit {
       this.maxCities();
 
       this.getParams();
+      console.log("smkskdf");
+
 
     });
 
@@ -46,7 +48,7 @@ export class MainComponent implements OnInit {
   deletedObj: TransferData = new TransferData("", 0, new Date());
 
   sum: number = 0;
-  stringSum=this.sum.toString();
+  stringSum = this.sum.toString();
   goal: number = 270000;
 
   deleteOrAddParam!: any;
@@ -99,7 +101,7 @@ export class MainComponent implements OnInit {
 
   maxCities(): void {
     console.log(this.cities);
-    
+
     for (let i = 0; i < 3; i++) {
       this.maxesCities.push(this.cities[i]);
     }
