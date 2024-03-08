@@ -1,4 +1,5 @@
 <body>
+    <!-- <images></images> -->
 
     <div id="title">
         <p id="now">הסכום שנאסף עד עכשיו:</p>
@@ -15,18 +16,20 @@
                 <p>הסכום : {{c.sum}}</p>
             </div>
         </div> -->
-        <div>
-            <p><b>הערים עם הסכומים הגבוהים ביותר :</b></p>
-            <div id="maxCities" *ngFor="let m of maxesCities;let index">
-                <p class="city">שם העיר: {{m.name}} </p>
-                <p>הסכום: {{m.sum}}</p>
+        <div id="max">
+            <p id="maxP"><b>הערים עם הסכומים הגבוהים ביותר :</b></p>
+            <div id="wrap">
+                <div id="maxCities" *ngFor="let m of maxesCities;let index">
+                    <p class="city"> {{m.name}} : {{m.sum}} שקלים</p>
+                </div>
+                <!-- <p>הסכום: {{m.sum}}</p> -->
             </div>
         </div>
-        <div>
-            <p><b>הערים שעודכנו לאחרונה:</b></p>
+        <div id="last">
+            <p id="lastP"><b>הערים שעודכנו לאחרונה:</b></p>
             <div id="lastCities" *ngFor="let l of lastCities">
-                <p class="city">שם העיר: {{l.name}} </p>
-                <p>הסכום : {{l.sum}}</p>
+                <p class="city">{{l.name}} : {{l.sum}} שקלים</p>
+                <!-- <p>הסכום : {{l.sum}}</p> -->
             </div>
         </div>
     </div>

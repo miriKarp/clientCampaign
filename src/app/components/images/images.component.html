@@ -1,5 +1,3 @@
-<p>images works!</p>
-
-<div *ngIf="showImage">
-    <img [src]="imageUrls[currentImageIndex]" alt="Image">
+<div>
+    <img [src]="currentImage" *ngIf="showImage" alt="Image" />
 </div>
