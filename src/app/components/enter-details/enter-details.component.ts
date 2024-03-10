@@ -20,7 +20,7 @@ export class EnterDetailsComponent {
   Addsum1!: number;
 
   newGoal!: number;
-  tr:TransferData=new TransferData("",0,new Date());
+  tr: TransferData = new TransferData("", 0, new Date());
   // tr: TransferData = {
   //   sum: 0,
   //   name: '',
@@ -52,14 +52,30 @@ export class EnterDetailsComponent {
     this.router.navigate(['main'], { queryParams: { newGoal: this.newGoal } });
   }
 
+  // import { HttpClient } from '@angular/common/http';
 
+  // export class FileUploadComponent {
+  //   constructor(private http: HttpClient) { }
 
-  // @Output() onchoose: EventEmitter<any> = new EventEmitter<any>();
-  // addCity(): void {
-  //   this.tr.sum = this.sum2;
-  //   this.tr.name = this.city2;
-  //   this.onchoose.emit(this.tr)
-
-  // }
-
+  onImageSelected(event: any) {
+    const file: File = event.target.files[0];
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    this.detailsService.addImage(formData).subscribe(res => {
+      console.log(res.fileName);
+    });
+  }
 }
+
+
+
+
+// @Output() onchoose: EventEmitter<any> = new EventEmitter<any>();
+// addCity(): void {
+//   this.tr.sum = this.sum2;
+//   this.tr.name = this.city2;
+//   this.onchoose.emit(this.tr)
+
+// }
+
+

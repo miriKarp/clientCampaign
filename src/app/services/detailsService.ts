@@ -10,9 +10,9 @@ import { TransferData } from "../models/transfer";
 export class DetailsService {
 
     // serverUrl: string = 'https://localhost:44337/api'
-    serverUrl: string = 'https://localhost:5001/api'
+    serverUrl: string = 'https://localhost:5001/api';
     cities: TransferData[] = [];
-    s:any;
+    s: any;
 
     constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class DetailsService {
     }
 
     getCity(city: string): Observable<TransferData> {
-        let res = this.http.get(this.serverUrl + '/City/'+city);
+        let res = this.http.get(this.serverUrl + '/City/' + city);
         return res as Observable<TransferData>;
     }
 
@@ -39,7 +39,7 @@ export class DetailsService {
     deleteCity(name: string): Observable<any> {
         let res = this.http.delete(this.serverUrl + '/City/' + name)
         return res as Observable<any>;
-    }   
+    }
 
 
     getSum(): Observable<number> {
@@ -55,25 +55,41 @@ export class DetailsService {
     deleteSum(sum: number): Observable<any> {
         let res = this.http.delete(this.serverUrl + '/Sum/' + sum)
         console.log(res);
-        console.log(res as Observable<any>);       
+        console.log(res as Observable<any>);
         return res as Observable<any>;
     }
 
 
 
-
-    private cityObj = new Subject<TransferData[]>();
-
-    public get() {
-        // return this.cityObj;
-        return this.cities;
+    addImage(formData: any): Observable<any> {
+        let res = this.http.post(this.serverUrl + '/Image/upload', formData)
+        return res as Observable<any>;
     }
-    public set(city: TransferData[]) {
-        // this.addCity(city);
-        this.getAllCities().subscribe(res => {
-            city = res;
-        })
-        this.cityObj.next(city);
+
+    getImage(): Observable<string[]> {
+        let res = this.http.get<string[]>(this.serverUrl + '/Image/files');
+        return res as Observable<any[]>;
+
     }
+
+
+
+
+
+
+
+    // private cityObj = new Subject<TransferData[]>();
+
+    // public get() {
+    //     // return this.cityObj;
+    //     return this.cities;
+    // }
+    // public set(city: TransferData[]) {
+    //     // this.addCity(city);
+    //     this.getAllCities().subscribe(res => {
+    //         city = res;
+    //     })
+    //     this.cityObj.next(city);
+    // }
 
 }

@@ -31,6 +31,11 @@
             <input type="number" name="newGoal" placeholder="הכנס יעד חדש" [(ngModel)]="newGoal">
             <button (click)="addNewGoal()">אישור</button>
         </div>
+
+        <div class="details">
+            <p>העלאת תמונה:</p>
+            <input type="file" (change)="onImageSelected($event)">
+        </div>
     </div>
 
 </body>

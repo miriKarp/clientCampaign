@@ -16,7 +16,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     // this.showImages();
-
     console.log(new Date());
 
     this.detailsService.getSum().subscribe(res => {
@@ -101,10 +100,10 @@ export class MainComponent implements OnInit {
 
   maxCities(): void {
     console.log(this.cities);
-
-    for (let i = 0; i < 3; i++) {
-      this.maxesCities.push(this.cities[i]);
-    }
+    this.maxesCities = this.cities.slice(0, 3);
+    // for (let i = 0; i < 3; i++) {
+    //   this.maxesCities.push(this.cities[i]);
+    // }
   }
 
   lastsCitiesFunc(): void {
@@ -122,6 +121,7 @@ export class MainComponent implements OnInit {
     if (this.lastCities.length > 5) {
       this.lastCities = this.lastCities.slice(-5);
     }
+    // this.showDetails();
 
   }
 
@@ -137,10 +137,12 @@ export class MainComponent implements OnInit {
   showDetails(): void {
     this.detailsService.getAllCities().subscribe(res => {
       this.cities = res;
-
+      this.lastCities = res;
       this.cities.sort((a, b) => {
         return a.sum - b.sum;
       });
+      this.lastsCitiesFunc();
+      this.maxCities();
     })
   }
 
@@ -165,6 +167,8 @@ export class MainComponent implements OnInit {
 
       this.detailsService.deleteCity(this.deletedObj.name).subscribe(res => {
         this.showDetails();
+        this.maxCities();
+        this.lastsCitiesFunc();
         console.log(this.deletedObj.name);
       });
     });
@@ -176,17 +180,10 @@ export class MainComponent implements OnInit {
     this.cities.forEach(c => {
       console.log(c);
       if (c.name === this.tr.name) {
-        // this.cities = this.cities.map(ci => {
-        //   if (ci.name == this.tr.name) {
-        //     this.tr.sum = this.tr.sum + ci.sum;
-        //     return this.tr;
-        //   }
-        //   return ci;
-        // })
         this.detailsService.updateCity(this.tr).subscribe(res => {
           this.addSum();
           this.showDetails();
-          // this.lastsCitiesFunc(this.tr.name);
+          this.maxCities();
           this.lastsCitiesFunc();
 
         });
@@ -197,6 +194,7 @@ export class MainComponent implements OnInit {
       this.detailsService.addCity(this.tr).subscribe(res => {
         this.addSum();
         this.showDetails();
+        this.maxCities();
         this.lastsCitiesFunc();
         // this.lastsCitiesFunc(this.tr.name);
       });

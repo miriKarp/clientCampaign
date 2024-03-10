@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
 import { EnterDetailsComponent } from './components/enter-details/enter-details.component';
 import { ImagesComponent } from './components/images/images.component';
-import { CityComponent } from './components/city/city.component'
 
 
 @NgModule({
@@ -16,7 +15,6 @@ import { CityComponent } from './components/city/city.component'
     MainComponent,
     EnterDetailsComponent,
     ImagesComponent,
-    CityComponent,
   ],
   imports: [
     BrowserModule,
