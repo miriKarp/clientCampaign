@@ -52,11 +52,6 @@ export class EnterDetailsComponent {
     this.router.navigate(['main'], { queryParams: { newGoal: this.newGoal } });
   }
 
-  // import { HttpClient } from '@angular/common/http';
-
-  // export class FileUploadComponent {
-  //   constructor(private http: HttpClient) { }
-
   onImageSelected(event: any) {
     const file: File = event.target.files[0];
     const formData: FormData = new FormData();
@@ -64,6 +59,11 @@ export class EnterDetailsComponent {
     this.detailsService.addImage(formData).subscribe(res => {
       console.log(res.fileName);
     });
+  }
+
+
+  deleteImage(): void {
+
   }
 }
 

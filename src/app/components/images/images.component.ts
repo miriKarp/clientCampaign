@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { interval } from 'rxjs';
 import { DetailsService } from 'src/app/services/detailsService';
 
@@ -9,7 +10,7 @@ import { DetailsService } from 'src/app/services/detailsService';
 })
 export class ImagesComponent implements OnInit {
 
-  constructor(private detailsService: DetailsService) { }
+  constructor(private router: Router, private detailsService: DetailsService) { }
 
   ngOnInit(): void {
     this.getImage();
@@ -21,8 +22,23 @@ export class ImagesComponent implements OnInit {
       this.forIndex();
       setTimeout(() => {
         this.showImage = false; // Hide image after 5 seconds
-      }, 5000);
-    }, 30000)
+      }, 15000);
+    }, 60000)
+
+
+
+    // this.getImage();
+
+    // this.showImage = true;
+    // this.currentImage = this.imageUrls[this.myIndex];
+    // console.log(this.currentImage);
+
+    // this.forIndex();
+    // setTimeout(() => {
+    //   console.log("image in image");
+    //   this.router.navigate(['main']);
+    // }, 5000);
+
   }
 
 
@@ -46,13 +62,14 @@ export class ImagesComponent implements OnInit {
   }
 
   forIndex() {
-    if (this.myIndex < this.imageUrls.length-1) {
+    if (this.myIndex < this.imageUrls.length - 1) {
       this.myIndex++;
     }
     else {
       this.myIndex = 0;
     }
   }
+
 
 
 }

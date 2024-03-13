@@ -1,11 +1,12 @@
 <body>
-    <images></images>
+    <button id="stopImages" [ngClass]="showImage?'green':'red'" (click)="stopImages()">הסתר תמונות</button>
+    <images *ngIf="showImage"></images>
 
     <div id="title">
-        <p id="now">הסכום שנאסף עד עכשיו:</p>
+        <p id="now"> אספנו עד עכשיו:</p>
         <p id="sum"><b>{{sum}}</b> ש"ח</p>
         <p id="in">מתוך {{goal}}</p>
-        <p id="left">נותרו עוד :{{goal-sum}}</p>
+        <p id="left"> זה קטן עלינו ! :{{goal-sum}}</p>
     </div>
 
     <div id="contant">
@@ -17,17 +18,21 @@
             </div>
         </div> -->
         <div id="max">
-            <p id="maxP"><b>הערים עם הסכומים הגבוהים ביותר :</b></p>
+            <!-- <p id="maxP"><b>הערים עם הסכומים הגבוהים ביותר :</b></p> -->
+            <p id="maxP"><b>המובילים !</b></p>
             <div id="wrap">
-                <div id="maxCities" *ngFor="let m of maxesCities;let index">
-                     <p class="city"> {{ m.name }} : {{ m.sum }} שקלים</p>
+                <div id="maxCities" *ngFor="let m of maxesCities;let i=index;">
+                    <p class="city" [ngClass]="i===0?'middle':'not'"> {{ m.name }} : {{ m.sum }} ש"ח</p>
                 </div>
             </div>
         </div>
         <div id="last">
-            <p id="lastP"><b>הערים שעודכנו לאחרונה:</b></p>
-            <div id="lastCities" *ngFor="let l of lastCities">
-                <p class="city">{{l.name}} : {{l.sum}} שקלים</p>
+            <!-- <p id="lastP"><b>הערים שעודכנו לאחרונה:</b></p> -->
+            <p id="lastP"><b>האחרונים !</b></p>
+            <div id="wrapLast">
+                <div id="lastCities" *ngFor="let l of lastCities">
+                    <p class="lastCity">{{l.name}} : {{l.sum}} ש"ח</p>
+                </div>
             </div>
         </div>
     </div>

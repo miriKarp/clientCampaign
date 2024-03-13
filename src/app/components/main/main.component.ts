@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { EnterDetailsComponent } from '../enter-details/enter-details.component';
 import { TransferData } from 'src/app/models/transfer';
 import { DetailsService } from 'src/app/services/detailsService';
@@ -10,12 +10,29 @@ import { Observable } from 'rxjs';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit ,AfterViewInit {
 
-  constructor(private router: Router, private detailsService: DetailsService, private ar: ActivatedRoute) { }
+  constructor(private router: Router, private detailsService: DetailsService, private ar: ActivatedRoute, private elementRef: ElementRef) { }
+  ngAfterViewInit(): void {
+    const targetLineElement = this.elementRef.nativeElement.querySelector('#now');
+    if (targetLineElement) {
+      console.log('Found target element');
+      console.log(targetLineElement);
+      
+      targetLineElement.scrollIntoView({  block: 'start', inline: 'nearest' });
+      console.log('Scrolled to target element');
+
+    }
+  }
 
   ngOnInit(): void {
     // this.showImages();
+    // this.images();
+
+    
+
+
+
     console.log(new Date());
 
     this.detailsService.getSum().subscribe(res => {
@@ -54,6 +71,7 @@ export class MainComponent implements OnInit {
 
   deleteOrAdd!: Boolean;
   isUpdate: boolean = false;
+  showImage: boolean = true;
 
   city!: TransferData;
 
@@ -118,8 +136,8 @@ export class MainComponent implements OnInit {
 
     console.log(this.lastCities);
 
-    if (this.lastCities.length > 5) {
-      this.lastCities = this.lastCities.slice(-5);
+    if (this.lastCities.length > 6) {
+      this.lastCities = this.lastCities.slice(-6);
     }
     // this.showDetails();
 
@@ -201,6 +219,30 @@ export class MainComponent implements OnInit {
       this.showDetails();
     }
   }
+
+
+  stopImages(): void {
+    this.showImage = (!this.showImage);
+    console.log(this.showImage);
+
+
+  }
+
+
+
+
+
+
+  // images(): void {
+  //   setInterval(() => {
+  //     this.router.navigate(['image'])
+  //     console.log("image in main");
+
+  //     // setTimeout(() => {
+
+  //     // }, 5000);
+  //   }, 30000)
+  // }
 
   // showImages(): void {
   //   while(true){

@@ -36,6 +36,11 @@
             <p>העלאת תמונה:</p>
             <input type="file" (change)="onImageSelected($event)">
         </div>
+        <div class="details">
+            <p>מחיקת תמונה:</p>
+            <input type="text" placeholder="הכנס את שם התמונה שברצונך למחוק">
+            <button (click)="deleteImage()">אישור</button>
+        </div>
     </div>
 
 </body>
