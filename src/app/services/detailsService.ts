@@ -71,7 +71,12 @@ export class DetailsService {
         return res as Observable<any[]>;
 
     }
-
+    deleteImage(imageName:string): Observable<any> {
+        let res = this.http.delete<any>(this.serverUrl + "/Image/"+imageName); 
+        console.log(res);
+               
+        return res as Observable<any>;
+    }
 
 
 

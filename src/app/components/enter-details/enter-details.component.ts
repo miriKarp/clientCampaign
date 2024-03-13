@@ -14,6 +14,8 @@ export class EnterDetailsComponent {
   Addsum!: number;
   Addcity!: string;
 
+  deletedImage!: string;
+
   deletedCity: string = "";
   deletedSum!: number;
 
@@ -62,9 +64,17 @@ export class EnterDetailsComponent {
   }
 
 
-  deleteImage(): void {
-
-  }
+  deleteImage(): void {    
+    let dellImage=this.deletedImage + ".jpg";
+    this.detailsService.deleteImage(dellImage).subscribe({
+      next: (res) => {
+        console.log('Image deleted successfully:', res);
+      },
+      error: (error) => {
+        console.error('Error deleting image:', error);
+      }
+    }
+    )}
 }
 
 

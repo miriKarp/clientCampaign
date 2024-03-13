@@ -38,7 +38,7 @@
         </div>
         <div class="details">
             <p>מחיקת תמונה:</p>
-            <input type="text" placeholder="הכנס את שם התמונה שברצונך למחוק">
+            <input type="text" placeholder="הכנס את שם התמונה שברצונך למחוק" [(ngModel)]="deletedImage">
             <button (click)="deleteImage()">אישור</button>
         </div>
     </div>
